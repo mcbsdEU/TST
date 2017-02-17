@@ -1,0 +1,38 @@
+###Created by Miroslav Cani###
+
+alias ps /bin/ps -aux
+alias df /bin/df -h
+alias du /usr/bin/du -h
+alias cl /usr/bin/clear
+alias ls /bin/ls -lah --color
+alias logs cd /var/log
+alias vi "/usr/bin/vim -u ~/.vimrc"
+alias sr screen -r
+alias t top -P
+alias n netstat -an
+alias r netstat -rn
+# A righteous umask
+umask 22
+
+setenv  PATH /usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/opt/OV/bin:/opt/OV/support
+setenv  EDITOR  vim
+setenv  PAGER   more
+setenv  BLOCKSIZE       K
+setenv  TERM xterm
+
+if ($?prompt) then
+        # An interactive shell -- set some stuff up
+        set prompt = "%{\033[36m%}[%{\033[0m%}%{\033[31m%}%#%n%{\033[0m%}%{\033[36m%}@%{\033[0m%}%m%{\033[36m%}|%{\033[0m%}%~%{\033[36m%}]%{\033[0m%}>"
+        set filec
+        set autolist
+        set history = 10000
+        set savehist = (10000 merge)
+        set mail = (/var/mail/$USER)
+        if ( $?tcsh ) then
+                bindkey "^W" backward-delete-word
+                bindkey -k up history-search-backward
+                bindkey -k down history-search-forward
+        endif
+endif
+
+stty -ixon
