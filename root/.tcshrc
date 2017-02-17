@@ -1,12 +1,10 @@
-###Created by Miroslav Cani###
-
 alias ps /bin/ps -aux
 alias df /bin/df -h
 alias du /usr/bin/du -h
 alias cl /usr/bin/clear
-alias ls /bin/ls -lah --color
+alias ls /bin/ls -lah
 alias logs cd /var/log
-alias vi "/usr/bin/vim -u ~/.vimrc"
+alias vi "/usr/local/bin/vim -u ~/.vimrc"
 alias sr screen -r
 alias t top -P
 alias n netstat -an
